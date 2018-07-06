@@ -19,14 +19,13 @@ class CreateProductsTable extends Migration
 
             $table->string('name');
             $table->string('code');
-            $table->text('description');
-            $table->decimal('price', 21, 8);
-            $table->string('img_path');
-            $table->text('specifications');
-            $table->text('tags');
+            $table->text('description')->nullable();
+            $table->decimal('price', 21, 8)->unsigned();
+            $table->string('img_path')->nullable();
+            $table->text('specifications')->nullable();
+            $table->text('tags')->nullable();
 
-            $table->integer("category_id");
-            $table->foreign("category_id")->references('id')->on('category');
+            $table->integer("category_id")->nullable();
         });
     }
 

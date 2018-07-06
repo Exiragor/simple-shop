@@ -19,8 +19,8 @@ class CreateCategoriesTable extends Migration
 
             $table->string('name');
             $table->string('code');
-            $table->text('description');
-            $table->integer('sort');
+            $table->text('description')->nullable();
+            $table->integer('sort')->default(100);
         });
     }
 
