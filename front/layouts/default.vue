@@ -26,12 +26,12 @@ html {
   background-color: #e9e9e9;
 }
 
+div {
+  background-color: #e9e9e9;
+}
+
 *, *:before, *:after {
   box-sizing: border-box;
   margin: 0;
-}
-
-.text-center {
-  text-align: center;
 }
 </style>

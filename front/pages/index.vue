@@ -1,5 +1,5 @@
 <template lang="pug">
-  section.container
+  section.container.main
     h1.text-center Hello!
 </template>
 
@@ -9,10 +9,8 @@
   }
 </script>
 
-<style>
-  .container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding-top: 60px;
+<style lang="scss" scoped>
+  .main {
+    padding-top: 50px;
   }
 </style>
