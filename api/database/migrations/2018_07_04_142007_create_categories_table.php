@@ -21,6 +21,7 @@ class CreateCategoriesTable extends Migration
             $table->string('code');
             $table->text('description')->nullable();
             $table->integer('sort')->default(100);
+            $table->boolean('active')->default(true);
         });
     }
 

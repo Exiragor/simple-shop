@@ -24,6 +24,7 @@ class CreateProductsTable extends Migration
             $table->string('img_path')->nullable();
             $table->text('specifications')->nullable();
             $table->text('tags')->nullable();
+            $table->boolean('active')->default(true);
 
             $table->integer("category_id")->nullable();
         });
