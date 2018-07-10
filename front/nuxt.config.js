@@ -14,6 +14,13 @@ module.exports = {
     ]
   },
   /*
+  ** Including scss files
+   */
+  css: [
+    // SCSS file in the project
+    '@/assets/scss/app.scss'
+  ],
+  /*
   ** Build configuration
   */
   build: {

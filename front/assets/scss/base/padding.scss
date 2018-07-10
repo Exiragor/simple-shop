@@ -1,0 +1,29 @@
+@mixin padding {
+  @for $i from 0 to 100 {
+    .p#{$i} {
+      padding: #{$i}px;
+    }
+    .px#{$i} {
+      padding-left: #{$i}px;
+      padding-right: #{$i}px;
+    }
+    .py#{$i} {
+      padding-top: #{$i}px;
+      padding-bottom: #{$i}px;
+    }
+    .pt#{$i} {
+      padding-top: #{$i}px;
+    }
+    .pr#{$i} {
+      padding-right: #{$i}px;
+    }
+    .pb#{$i} {
+      padding-bottom: #{$i}px;
+    }
+    .pl#{$i} {
+      padding-left: #{$i}px;
+    }
+  }
+}
+
+@include padding;
