@@ -10,7 +10,7 @@
   import Pagination from '~/components/catalog/Pagination'
 
   export default {
-    name: 'pageIndex',
+    name: 'CatalogPage',
     components: {
       ProductsList,
       Pagination
