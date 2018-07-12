@@ -11,9 +11,17 @@
 
   export default {
     name: 'CatalogPage',
+    async fetch ({ store }) {
+      await store.dispatch("products/loadProducts", { page: this.currentPage })
+    },
     components: {
       ProductsList,
       Pagination
+    },
+    computed: {
+      currentPage() {
+        return this.$route.params.page || 1
+      }
     }
   }
 </script>

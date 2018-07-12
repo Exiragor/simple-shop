@@ -16,13 +16,7 @@
     computed: {
       products() {
         return this.$store.state.products.list || []
-      },
-      currentPage() {
-        return this.$route.params.page || 1
       }
     },
-    created() {
-      this.$store.dispatch("products/loadProducts", { page: this.currentPage })
-    }
   }
 </script>

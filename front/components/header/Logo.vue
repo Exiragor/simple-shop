@@ -1,5 +1,6 @@
 <template lang="pug">
-  img.logo(src="~assets/images/logo.png")
+  router-link(to="/")
+    img.logo(src="~assets/images/logo.png" alt="logo")
 </template>
 
 <script>
