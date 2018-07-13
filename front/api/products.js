@@ -1,6 +1,11 @@
 import req from './request'
 
+let mainUrl = '/products'
+
 export function loadProducts(count, page) {
-  let url = `/products?count=${count}&page=${page}`
-  return req.get(url)
+  return req.get(mainUrl + `?count=${count}&page=${page}`)
+}
+
+export function loadProduct(id) {
+  return req.get(mainUrl + `/${id}`)
 }

@@ -1,4 +1,4 @@
-import { loadProducts } from '~/api/products'
+import { loadProducts, loadProduct } from '~/api/products'
 
 export const state = () => ({
   list: [],
@@ -14,6 +14,13 @@ export const actions = {
       commit('setProducts', products)
       commit('setLastPage', data.meta.last_page)
     }
+  },
+  async loadProduct({commit}, { productID }) {
+    let { data } = await loadProduct(productID)
+    let product = data.data
+    if (product) {
+      commit('setProduct', product)
+    }
   }
 }
 
@@ -24,4 +31,7 @@ export const mutations = {
   setLastPage(state, numPage) {
     state.lastPage = numPage
   },
+  setProduct(state, item) {
+    state.current = item
+  }
 }

@@ -1,6 +1,6 @@
 <template lang="pug">
   div
-    header-component
+    header-component.mb30
     nuxt
 </template>
 

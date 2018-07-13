@@ -5,7 +5,7 @@
     .card-body
       h5.card-title {{ product.name }}
     .card-body.btns
-      .button.button--primary Подробнее
+      router-link(:to="`/products/${product.id}`").button.button--primary Подробнее
       .button.button--primary Купить
 </template>
 
