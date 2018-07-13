@@ -14,5 +14,6 @@ use Illuminate\Http\Request;
 */
 
 Route::get('products', 'Api\ProductsController@index');
+Route::get('products/{id}', 'Api\ProductsController@get');
 
 

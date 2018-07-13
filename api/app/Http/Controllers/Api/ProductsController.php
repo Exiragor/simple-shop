@@ -21,4 +21,11 @@ class ProductsController extends Controller
 
         return ProductResource::collection($products);
     }
+
+    public function get(string $id) {
+        $id = (is_numeric($id) && $id > 0) ? $id : null;
+        $product = Product::active()->findOrFail($id);
+
+        return ProductResource::make($product);
+    }
 }
