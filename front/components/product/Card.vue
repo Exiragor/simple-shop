@@ -1,6 +1,7 @@
 <template lang="pug">
   .card.mb20
-    img.card-img-top.p10(:src="product.img || '/images/no-product-img.png'" alt="product.name")
+    transition(name="fade" appear)
+      img.card-img-top.p10(:src="product.img || '/images/no-product-img.png'" alt="product.name")
     .card-body
       h5.card-title {{ product.name }}
     .card-body.btns

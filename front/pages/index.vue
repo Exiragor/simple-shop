@@ -11,7 +11,7 @@
 
   export default {
     async fetch ({ store }) {
-      await store.dispatch("products/loadProducts", { page: 1 })
+      await store.dispatch("products/loadProducts", { count: 20, page: 1 })
     },
     name: 'pageIndex',
     components: {

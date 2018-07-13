@@ -12,7 +12,7 @@
   export default {
     name: 'CatalogPage',
     async fetch ({ store, params }) {
-      await store.dispatch("products/loadProducts", { page: params.page })
+      await store.dispatch("products/loadProducts", { count: 20, page: params.page })
     },
     components: {
       ProductsList,

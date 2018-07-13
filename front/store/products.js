@@ -2,13 +2,13 @@ import { loadProducts } from '~/api/products'
 
 export const state = () => ({
   list: [],
-  perPageCount: 20,
+  current: {},
   lastPage: 0,
 })
 
 export const actions = {
-  async loadProducts({commit, state}, { page }) {
-    let { data } = await loadProducts(state.perPageCount, page)
+  async loadProducts({commit}, { count, page }) {
+    let { data } = await loadProducts(count, page)
     let products = data.data
     if (products.length) {
       commit('setProducts', products)
