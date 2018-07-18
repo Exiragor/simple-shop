@@ -14,6 +14,7 @@
     name: 'ProductCard',
     props: {
       product: {
+        type: Object,
         required: true,
       }
     }

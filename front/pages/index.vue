@@ -2,7 +2,7 @@
   section.container.main
     h1.text-center.mb35 Catalog
     pagination.mb30
-    products-list
+    products-list(:columns="4" :products="products")
 </template>
 
 <script>
@@ -17,7 +17,12 @@
     components: {
       ProductsList,
       Pagination
-    }
+    },
+    computed: {
+      products() {
+        return this.$store.state.products.list || []
+      }
+    },
   }
 </script>
 

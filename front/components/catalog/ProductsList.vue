@@ -1,7 +1,7 @@
 <template lang="pug">
   .products#products
     .row
-      .col-md-3(v-for="product in products" :key="product.id")
+      .col-sm-12(v-for="product in products" :key="product.id" :class="columnsClass")
         card(:product="product")
 </template>
 
@@ -13,9 +13,20 @@
     components: {
       Card
     },
+    props: {
+      columns: {
+        type: [Number, String],
+        default: 6,
+      },
+      products: {
+        type: Array,
+        default: () => [],
+        required: true,
+      }
+    },
     computed: {
-      products() {
-        return this.$store.state.products.list || []
+      columnsClass() {
+        return 'col-md-' + 12 / this.columns
       }
     },
   }
