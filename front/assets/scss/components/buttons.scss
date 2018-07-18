@@ -35,11 +35,12 @@ $white: map_get($colors, white);
   }
   &--primary {
     background-color: $primary;
-    color: $white;
     border: 1px $primary solid;
+    color: $white;
     &:hover {
       background-color: $primary-hover;
       border: 1px $primary-hover solid;
+      color: $white;
     }
   }
   &--primary-border {
