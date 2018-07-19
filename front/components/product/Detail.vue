@@ -1,19 +1,21 @@
 <template lang="pug">
   .product
     .row
-      .col-md-6.col-sm-12
+      .col-md-4.col-sm-12
         img.card-img-top.p10(:src="product.img || '/images/no-product-img.png'" alt="product.name")
         .text-center.mt15
-          button(v-for="tag in product.tags" :key="tag").button.button--small.button--primary-border.tag.mt20 {{ tag }}
-      .col-md-6.col-sm-12.pt30
+          .w-100.button.button--primary Купить
+          button(v-for="tag in product.tags" :key="tag").button.button--small.button--primary-border.tag.mt35 {{ tag }}
+      .col-md-8.col-sm-12.pt30
         h2 {{ product.name }}
+        .asin ASIN: {{ product.code }}
         h3.mt40.field__title.pb5.font-italic
           | Description
         .field {{ product.description }}
         h3.mt40.field__title.pb5.font-italic
           | Specifications
         .field
-          .field__spec.py15(v-for="spec in product.specifications" :key="spec.name")
+          .field__spec.py10(v-for="spec in product.specifications" :key="spec.name")
             span.font-weight-bold {{ spec.name }}
             span {{ spec.value }}
 </template>
@@ -45,5 +47,8 @@
       display: flex;
       justify-content: space-between;
     }
+  }
+  .w-100 {
+    width: 100%;
   }
 </style>
