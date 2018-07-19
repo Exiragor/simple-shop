@@ -6,6 +6,7 @@
 </template>
 
 <script>
+  import { mapState } from 'vuex'
   import ProductsList from '~/components/catalog/ProductsList'
   import Pagination from '~/components/catalog/Pagination'
 
@@ -19,9 +20,9 @@
       Pagination
     },
     computed: {
-      products() {
-        return this.$store.state.products.list || []
-      }
+      ...mapState({
+        products: state => state.products.list || []
+      })
     },
   }
 </script>

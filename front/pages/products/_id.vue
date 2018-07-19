@@ -5,6 +5,7 @@
 </template>
 
 <script>
+  import { mapState } from 'vuex'
   import ProductDetail from '~/components/product/Detail.vue'
   import Breadcrumbs from '~/components/common/Breadcrumbs.vue'
   export default {
@@ -17,9 +18,9 @@
       await store.dispatch("products/loadProduct", { productID: params.id })
     },
     computed: {
-      product() {
-        return this.$store.state.products.current
-      }
+      ...mapState({
+        product: state => state.products.current
+      })
     }
   }
 </script>

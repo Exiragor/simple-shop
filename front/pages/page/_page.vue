@@ -2,10 +2,11 @@
   section.container.main
     h1.text-center.mb35 Catalog
     pagination.mb30
-    products-list
+    products-list(:columns="4" :products="products")
 </template>
 
 <script>
+  import { mapState } from 'vuex'
   import ProductsList from '~/components/catalog/ProductsList'
   import Pagination from '~/components/catalog/Pagination'
 
@@ -17,7 +18,12 @@
     components: {
       ProductsList,
       Pagination
-    }
+    },
+    computed: {
+      ...mapState({
+        products: state => state.products.list || []
+      })
+    },
   }
 </script>
 
