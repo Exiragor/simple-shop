@@ -1,5 +1,5 @@
 <template lang="pug">
-  section.container.main
+  section.container.main.pt30
     h1.text-center.mb35 Catalog
     pagination.mb30
     products-list(:columns="4" :products="products")
@@ -26,9 +26,3 @@
     },
   }
 </script>
-
-<style lang="scss" scoped>
-  .main {
-    padding-top: 50px;
-  }
-</style>
