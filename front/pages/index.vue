@@ -2,6 +2,7 @@
   section.container.main.pt30
     h1.text-center.mb35 Catalog
     pagination.mb30
+    search.mb30
     products-list(:columns="4" :products="products")
 </template>
 
@@ -9,6 +10,7 @@
   import { mapState } from 'vuex'
   import ProductsList from '~/components/catalog/ProductsList'
   import Pagination from '~/components/catalog/Pagination'
+  import Search from '~/components/catalog/Search'
 
   export default {
     async fetch ({ store }) {
@@ -17,7 +19,8 @@
     name: 'pageIndex',
     components: {
       ProductsList,
-      Pagination
+      Pagination,
+      Search,
     },
     computed: {
       ...mapState({

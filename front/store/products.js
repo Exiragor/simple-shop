@@ -4,6 +4,9 @@ export const state = () => ({
   list: [],
   current: {},
   lastPage: 0,
+  query: {
+    name: '',
+  }
 })
 
 export const actions = {

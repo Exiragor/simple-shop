@@ -2,6 +2,7 @@
   section.container.main.pt30
     h1.text-center.mb35 Catalog
     pagination.mb30
+    search.mb30
     products-list(:columns="4" :products="products")
 </template>
 

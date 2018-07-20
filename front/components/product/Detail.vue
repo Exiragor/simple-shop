@@ -2,11 +2,11 @@
   .product
     .row
       .col-md-4.col-sm-12
-        img.card-img-top.p10(:src="product.img || '/images/no-product-img.png'" alt="product.name")
+        img.card-img-top(:src="product.img || '/images/no-product-img.png'" alt="product.name")
         .text-center.mt15
           .w-100.button.button--primary Купить
           button(v-for="tag in product.tags" :key="tag").button.button--small.button--primary-border.tag.mt35 {{ tag }}
-      .col-md-8.col-sm-12.pt30
+      .col-md-8.col-sm-12
         h2 {{ product.name }}
         .asin ASIN: {{ product.code }}
         h3.mt40.field__title.pb5.font-italic

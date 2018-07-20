@@ -6,7 +6,7 @@
       h5.card-title {{ product.name }}
     .card-body.btns
       router-link(:to="`/products/${product.id}`").button.button--primary Подробнее
-      .button.button--primary Купить
+      .button.button--primary() Купить
 </template>
 
 <script>
@@ -32,6 +32,7 @@
   .btns {
     display: flex;
     justify-content: space-between;
+    max-height: 80px;
   }
   .button {
     width: 45%;
