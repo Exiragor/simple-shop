@@ -1,8 +1,7 @@
 <template lang="pug">
   .products#products
-    .row
-      .col-sm-12(v-for="product in products" :key="product.id" :class="columnsClass")
-        card(:product="product")
+    .card-deck.mb20(v-for="(products, index) in sortedProducts" :key="index")
+      card(v-for="product in products" :key="product.id" :product="product")
 </template>
 
 <script>
@@ -25,9 +24,24 @@
       }
     },
     computed: {
-      columnsClass() {
-        return 'col-md-' + 12 / this.columns
+      sortedProducts() {
+        return this.sortProductsForColumns(this.products, +this.columns)
       }
     },
+    methods: {
+      sortProductsForColumns(products, columns) {
+        let result = [], x = [], col = columns - 1
+        for (let [index, product] of products.entries()) {
+          x.push(product)
+          if (index === col) {
+            col += columns
+            result.push(x)
+            x = []
+          }
+        }
+
+        return result
+      }
+    }
   }
 </script>

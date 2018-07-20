@@ -11,7 +11,6 @@ $factory->define(Product::class, function (Faker $faker) {
         ['name' => 'color', 'value' => $faker->randomElement(['yellow', 'black', 'white', 'red', 'green', 'orange'])],
     ];
     $images = [
-        "https://pp.userapi.com/c631329/v631329421/5a6d0/X7yAATDvmik.jpg",
         "https://pp.userapi.com/c606823/v606823421/1aad/8Jrr2sDrNP0.jpg",
         "https://sun1-15.userapi.com/c543109/v543109365/31795/VzglO7Ek4Zc.jpg",
         "https://sun1-16.userapi.com/c7006/v7006851/20fc9/ACW4fTXr86I.jpg",

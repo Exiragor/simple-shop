@@ -19,7 +19,7 @@
     },
     computed: {
       ...mapState({
-        product: state => state.products.current
+        product: state => state.products.current || {}
       })
     }
   }

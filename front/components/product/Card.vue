@@ -1,7 +1,7 @@
 <template lang="pug">
-  .card.mb20
+  .card
     transition(name="fade" appear)
-      img.card-img-top.p10(:src="product.img || '/images/no-product-img.png'" alt="product.name")
+      img.card-img-top(:src="product.img || '/images/no-product-img.png'" alt="product.name")
     .card-body
       h5.card-title {{ product.name }}
     .card-body.btns
@@ -35,5 +35,8 @@
   }
   .button {
     width: 45%;
+  }
+  .card-img-top {
+    height: 195px;
   }
 </style>
