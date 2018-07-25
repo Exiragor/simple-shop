@@ -10,6 +10,7 @@
   import { mapState } from 'vuex'
   import ProductsList from '~/components/catalog/ProductsList'
   import Pagination from '~/components/catalog/Pagination'
+  import Search from '~/components/catalog/Search'
 
   export default {
     name: 'CatalogPage',
@@ -18,7 +19,8 @@
     },
     components: {
       ProductsList,
-      Pagination
+      Pagination,
+      Search
     },
     computed: {
       ...mapState({

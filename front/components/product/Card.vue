@@ -4,6 +4,7 @@
       img.card-img-top(:src="product.img || '/images/no-product-img.png'" alt="product.name")
     .card-body
       h5.card-title {{ product.name }}
+      h4 $ {{ formatPrice(product.price) }}
     .card-body.btns
       router-link(:to="`/products/${product.id}`").button.button--primary Подробнее
       .button.button--primary() Купить
@@ -16,6 +17,12 @@
       product: {
         type: Object,
         required: true,
+      }
+    },
+    methods: {
+      formatPrice(value) {
+        let val = (value / 1).toFixed(2).replace('.', ',')
+        return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
       }
     }
   }

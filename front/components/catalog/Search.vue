@@ -1,5 +1,5 @@
 <template lang="pug">
-  nav
+  nav#search
     form.form-inline
       input.form-control(type="search" placeholder="Search" aria-label="Search" @keyup.enter="search" v-model="productName")
       button.button.button--primary(type="submit" @click="search") Search
@@ -22,7 +22,14 @@
 </script>
 
 <style lang="scss" scoped>
-  .form-inline {
-    justify-content: flex-end;
+  #search {
+    .form-inline {
+      justify-content: flex-end;
+    }
+
+    input {
+      height: 40px;
+      border-radius: 0;
+    }
   }
 </style>
