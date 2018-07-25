@@ -10,13 +10,10 @@ export const state = () => ({
 })
 
 export const actions = {
-  async loadProducts({commit}, { count, page }) {
-    let { data } = await loadProducts(count, page)
-    let products = data.data
-    if (products.length) {
-      commit('setProducts', products)
-      commit('setLastPage', data.meta.last_page)
-    }
+  async loadProducts({commit, state}, { count, page }) {
+    let { data } = await loadProducts(count, page, state.query)
+    commit('setProducts', data.data)
+    commit('setLastPage', data.meta.last_page)
   },
   async loadProduct({commit}, { productID }) {
     let { data } = await loadProduct(productID)
@@ -24,7 +21,12 @@ export const actions = {
     if (product) {
       commit('setProduct', product)
     }
-  }
+  },
+  changeQuery({commit}, query) {
+    for (let field in query) {
+      commit('setQueryField', {name: field, value: query[field]})
+    }
+  },
 }
 
 export const mutations = {
@@ -36,5 +38,8 @@ export const mutations = {
   },
   setProduct(state, item) {
     state.current = item
-  }
+  },
+  setQueryField(state, {name, value}) {
+    state.query[name] = value
+  },
 }

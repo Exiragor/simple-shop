@@ -2,8 +2,14 @@ import req from './request'
 
 let mainUrl = '/products'
 
-export function loadProducts(count, page) {
-  return req.get(mainUrl + `?count=${count}&page=${page}`)
+export function loadProducts(count, page, query = false) {
+  let queryStr = ''
+  if (query) {
+    for (let param in query) {
+      queryStr += `&${param}=${query[param]}`
+    }
+  }
+  return req.get(mainUrl + `?count=${count}&page=${page}` + queryStr)
 }
 
 export function loadProduct(id) {
