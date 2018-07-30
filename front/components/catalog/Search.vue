@@ -20,8 +20,8 @@
     },
     methods: {
       search() {
-        console.log('tets')
-        this.$store.dispatch("products/loadProducts", { count: 20, page: this.$route.params.page })
+        this.$store.dispatch("products/loadProducts", { count: 20, page: 1 })
+        this.$router.push({name: 'page-page', params: { page: 1 }})
       }
     },
   }
