@@ -5,11 +5,11 @@
         a.page-link(href="#" @click="changePage(currentPage - 1)") Previous
       li.page-item(v-if="currentPage - 1 > 1")
         a.page-link(href="#" @click="changePage(1)") 1
-      li.page-item.disabled(v-if="currentPage - 1 > 1")
+      li.page-item.disabled(v-if="currentPage - 2 > 1")
         a.page-link(href="#") ...
       li.page-item(v-for="(page, index) in pages" :key="index" :class="{active: page === currentPage }")
         a.page-link(href="#" @click="changePage(page)") {{ page }}
-      li.page-item.disabled(v-if="currentPage + 1 < lastPage")
+      li.page-item.disabled(v-if="currentPage + 2 < lastPage")
         a.page-link(href="#") ...
       li.page-item(v-if="currentPage + 1 < lastPage")
         a.page-link(href="#" @click="changePage(lastPage)") {{ lastPage }}
@@ -29,8 +29,16 @@
       },
       pages() {
         let page = this.currentPage === 1 ? this.currentPage + 1 : this.currentPage
-        page = this.currentPage === this.lastPage ? this.currentPage - 1 : page
-        return [page - 1, page, page + 1] || []
+        page = page === this.lastPage ? this.currentPage - 1 : page
+
+        let pages = []
+        for (let i = page - 1; i <= page + 1; i++) {
+          if (i > this.lastPage)
+            break;
+          pages.push(i)
+        }
+
+        return pages || []
       }
     },
     methods: {
