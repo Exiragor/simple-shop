@@ -2,6 +2,7 @@
   .products#products
     .card-deck.mb20(v-for="(products, index) in sortedProducts" :key="index")
       card(v-for="product in products" :key="product.id" :product="product")
+    h2(v-if="!sortedProducts.length").text-center No result
 </template>
 
 <script>
@@ -25,7 +26,7 @@
     },
     computed: {
       sortedProducts() {
-        return this.sortProductsForColumns(this.products, +this.columns)
+        return this.sortProductsForColumns(this.products, +this.columns) || []
       }
     },
     methods: {
