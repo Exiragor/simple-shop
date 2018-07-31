@@ -10,7 +10,8 @@ module.exports = {
       { hid: 'description', name: 'description', content: 'Frontend side of simple-shop' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/icon?family=Material+Icons'}
     ]
   },
   /*

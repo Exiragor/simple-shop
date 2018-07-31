@@ -1,15 +1,18 @@
 <template lang="pug">
-  header.header
-    logo
+  header.header.flex
+    logo.logo
+    shopping-cart.cart
 </template>
 
 <script>
   import Logo from  './Logo'
+  import ShoppingCart from './ShoppingCart'
 
   export default {
     name: 'HeaderTop',
     components: {
-      Logo
+      Logo,
+      ShoppingCart,
     }
   }
 </script>
@@ -18,8 +21,12 @@
   .header {
     height: 60px;
     background-color: white;
-    display: flex;
-    justify-content: center;
     padding: 10px 20px;
+  }
+  .logo {
+    margin-left: auto;
+  }
+  .cart {
+    margin-left: auto;
   }
 </style>
