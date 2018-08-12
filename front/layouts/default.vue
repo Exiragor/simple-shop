@@ -2,6 +2,7 @@
   div
     header-component.mb30
     nuxt
+    notifications.absolute.mt80
 </template>
 
 <script>

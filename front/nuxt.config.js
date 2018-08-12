@@ -37,9 +37,14 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
-    }
+    },
+    vendor: ['vue-notification/dist/ssr.js']
   },
   modules: [
     'bootstrap-vue/nuxt',
   ],
+  plugins: [
+    '~plugins/notifications',
+    '~/plugins/eventbus.js'
+  ]
 }

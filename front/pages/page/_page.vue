@@ -26,6 +26,6 @@
       ...mapState({
         products: state => state.products.list || []
       })
-    },
+    }
   }
 </script>

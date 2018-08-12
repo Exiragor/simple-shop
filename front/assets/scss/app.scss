@@ -2,7 +2,9 @@
 @import "base/flex";
 @import "base/margin";
 @import "base/padding";
+@import "base/position";
 @import "components/buttons";
+@import "components/notifications";
 
 $white: map_get($colors, white);
 $black: map_get($colors, black);
