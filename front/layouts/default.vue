@@ -2,15 +2,17 @@
   div
     header-component.mb30
     nuxt
-    notifications.absolute.mt80
+    events
 </template>
 
 <script>
   import headerComponent from '~/components/header/HeaderTop'
+  import events from '~/components/common/Events'
 
   export default {
     components: {
-      headerComponent
+      headerComponent,
+      events
     }
   }
 </script>
