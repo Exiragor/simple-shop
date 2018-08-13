@@ -6,11 +6,13 @@
       h5.card-title {{ product.name }}
       h4 $ {{ formatPrice(product.price) }}
     .card-body.btns
-      router-link(:to="`/products/${product.id}`").button.button--primary Подробнее
-      .button.button--primary(@click="addToBasket") Купить
+      router-link(:to="`/products/${product.id}`").button.button--primary More
+      .button.button--primary(@click="addToBasket") {{ productInCart ? 'In cart' : 'Buy' }}
 </template>
 
 <script>
+  import { mapState } from 'vuex'
+
   export default {
     name: 'ProductCard',
     props: {
@@ -19,12 +21,25 @@
         required: true,
       }
     },
+    computed: {
+      ...mapState({
+        products: state => state.cart.products
+      }),
+      productsId() {
+        return this.products.map(item => item.id)
+      },
+      productInCart() {
+        return this.productsId.indexOf(this.product.id) !== -1
+      }
+    },
     methods: {
       formatPrice(value) {
         let val = (value / 1).toFixed(2).replace('.', ',')
         return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
       },
       addToBasket() {
+        if (this.productInCart) return
+        this.$store.dispatch('cart/addProductToCart', this.product)
         this.$bus.$emit('notify', {
           type: 'success',
           text: 'Product was added to basket'

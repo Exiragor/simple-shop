@@ -1,12 +1,19 @@
 <template lang="pug">
   router-link(to="/").shopping-cart
     i.material-icons shopping_cart
-    .count.flex.fx-center.fy-center 1
+    .count.flex.fx-center.fy-center {{ productsCountInCart }}
 </template>
 
 <script>
+  import { mapState } from 'vuex'
+
   export default {
     name: 'ShoppingCart',
+    computed: {
+      ...mapState({
+        productsCountInCart: state => state.cart.count || 0
+      })
+    }
   }
 </script>
 
