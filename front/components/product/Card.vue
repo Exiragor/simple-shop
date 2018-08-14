@@ -39,7 +39,7 @@
       },
       addToBasket() {
         if (this.productInCart) return
-        this.$store.dispatch('cart/addProductToCart', this.product)
+        this.$store.dispatch('cart/addProductToCart', { product: this.product, app: this})
         this.$bus.$emit('notify', {
           type: 'success',
           text: 'Product was added to basket'
