@@ -1,5 +1,5 @@
 <template lang="pug">
-  router-link(to="/").shopping-cart
+  router-link(to="/cart").shopping-cart
     i.material-icons shopping_cart
     .count.flex.fx-center.fy-center {{ productsCountInCart }}
 </template>
