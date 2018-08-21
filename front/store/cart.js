@@ -17,6 +17,11 @@ export const actions = {
   },
   loadCartFromLs({commit}, app) {
     
+  },
+  changeCountOfProduct({state, commit}, { productId, number }) {
+    let product = state.products.filter(p => p.id === productId)[0]
+    let index = state.products.indexOf(product)
+    commit('changeProductCount', { index, number})
   }
 }
 
@@ -29,5 +34,8 @@ export const mutations = {
   },
   setProducts(products) {
 
+  },
+  changeProductCount(state, {index, number}) {
+    state.products[index].count += number
   }
 }
