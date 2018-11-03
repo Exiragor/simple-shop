@@ -1,7 +1,8 @@
-<template lang="pug">
-  header.header.flex
-    logo.logo
-    shopping-cart.cart
+<template>
+  <header class="header flex">
+    <logo class="logo pl17" />
+    <shopping-cart class="cart" />
+  </header>
 </template>
 
 <script>
