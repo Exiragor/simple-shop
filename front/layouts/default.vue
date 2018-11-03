@@ -13,6 +13,9 @@
     components: {
       headerComponent,
       events
+    },
+    mounted() {
+      this.$store.dispatch('cart/loadCartFromLs')
     }
   }
 </script>

@@ -1,13 +1,17 @@
-<template lang="pug">
-  .card
-    transition(name="fade" appear)
-      img.card-img-top(:src="product.img || '/images/no-product-img.png'" alt="product.name")
-    .card-body
-      h5.card-title {{ product.name }}
-      h4 $ {{ formatPrice(product.price) }}
-    .card-body.btns
-      router-link(:to="`/products/${product.id}`").button.button--primary More
-      .button.button--primary(@click="addToBasket") {{ productInCart ? 'In cart' : 'Buy' }}
+<template>
+  <div class="card">
+    <transition name="fade" appear>
+      <img class="card-img-top" :src="product.img || '/images/no-product-img.png'" :alt="product.name">
+    </transition>
+    <div class="card-body">
+      <h5 class="card-title">{{ product.name }}</h5>
+      <h4>{{ formatPrice(product.price) }}</h4>
+    </div>
+    <div class="card-body btns">
+      <router-link :to="`/products/${product.id}`" class="button button--primary">More</router-link>
+      <div class="button button--primary" @click="addToBasket">{{ productInCart ? 'In cart' : 'Buy' }}</div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -39,7 +43,7 @@
       },
       addToBasket() {
         if (this.productInCart) return
-        this.$store.dispatch('cart/addProductToCart', { product: this.product, app: this})
+        this.$store.dispatch('cart/addProductToCart', { product: this.product})
         this.$bus.$emit('notify', {
           type: 'success',
           text: 'Product was added to basket'
