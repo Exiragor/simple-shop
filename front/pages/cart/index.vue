@@ -15,7 +15,8 @@
     },
     computed: {
       ...mapState({
-        products: state => state.cart.products || []
+        products: state => state.cart.products || [],
+        counts: state => state.cart.counts || []
       })
     },
   }
