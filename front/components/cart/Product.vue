@@ -15,6 +15,7 @@
 
 <script>
 import { mapState } from 'vuex'
+import { getProduct } from '~/helpers'
 
 export default {
     name: 'ProductCart',
@@ -35,9 +36,7 @@ export default {
             this.$store.dispatch('cart/changeCountOfProduct', { productId: this.product.id, number: count })
         },
         getProduct(id) {
-            let product = this.products.filter(p => p.id === id)[0]
-            let index = this.products.indexOf(product)
-            return { product, index }
+            return getProduct(this.products, id)
         },
         getCount(id) {
             let { index } = this.getProduct(id)

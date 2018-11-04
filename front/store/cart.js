@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import { saveCartToLs, getCartFromLs, getProduct } from '../helpers'
 
 export const state = () => ({
   products: [],
@@ -13,29 +14,26 @@ export const actions = {
       commit('addNewCount', 1)
       commit('addProduct', product)
       commit('changeCount', 1)
-      saveCartToLs(state)
+      saveCartToLs(state.products, state.counts)
     }
   },
   loadCartFromLs({commit}) {
-    let products = JSON.parse(Vue.ls.get('cart.products'))
-    let counts = JSON.parse(Vue.ls.get('cart.counts'))
+    let { products, counts } = getCartFromLs()
     commit('setProducts', products)
     commit('setCounts', counts)
     commit('setCount', counts.length)
   },
   changeCountOfProduct({state, commit}, { productId, number }) {
-    let product = state.products.filter(p => p.id === productId)[0]
-    let index = state.products.indexOf(product)
+    let { index } = getProduct(state.products, productId)
     if (state.counts[index] + number > 0) {
       commit('changeProductCount', { index, number})
-      saveCartToLs(state)
+      saveCartToLs(state.products, state.counts)
     }
   },
   deleteProduct({state, commit}, { productId }) {
-    let product = state.products.filter(p => p.id === productId)[0]
-    let index = state.products.indexOf(product)
+    let { index } = getProduct(state.products, productId)
     commit('removeProduct', index)
-    saveCartToLs(state)
+    saveCartToLs(state.products, state.counts)
   }
 }
 
@@ -67,9 +65,4 @@ export const mutations = {
     state.counts.splice(index, 1)
     state.count -= 1
   }
-}
-
-function saveCartToLs(state) {
-  Vue.ls.set('cart.products', JSON.stringify(state.products))
-  Vue.ls.set('cart.counts', JSON.stringify(state.counts))
 }
