@@ -44,8 +44,8 @@ module.exports = {
     'bootstrap-vue/nuxt',
   ],
   plugins: [
-    '~plugins/notifications',
-    '~plugins/eventbus',
-    '~plugins/localstorage'
+    '~/plugins/notifications',
+    '~/plugins/eventbus',
+    '~/plugins/localstorage'
   ]
 }
