@@ -2,12 +2,13 @@
     <div class="product-cart">
         <img :src="product.img || '/images/no-product-img.png'" class="product-cart__image" :alt="product.name || ''">
         <router-link :to="'/products/' + product.id">{{ product.name || '' }}</router-link>
+        <div class="price mr15">${{ showPrice(product.price * getCount(product.id)) }}</div>
         <div class="count">
             <div class="count__btn" @click="changeCount(product, 1)"><span>+</span></div>
             <div class="count__number">{{ getCount(product.id) || 1 }}</div>
             <div class="count__btn" @click="changeCount(product, -1)"><span>-</span></div>
         </div>
-        <div class="actions">
+        <div class="actions ml15">
             <span @click="deleteProduct(product.id)">Remove</span>
         </div>
     </div>
@@ -15,7 +16,7 @@
 
 <script>
 import { mapState } from 'vuex'
-import { getProduct } from '~/helpers'
+import { getProduct, formatPrice } from '~/helpers'
 
 export default {
     name: 'ProductCart',
@@ -44,6 +45,9 @@ export default {
         },
         deleteProduct(id) {
             this.$store.dispatch('cart/deleteProduct', { productId: id })
+        },
+        showPrice(price) {
+            return formatPrice(price)
         }
     }
 }
@@ -70,7 +74,6 @@ export default {
         }
     }
     .count {
-        margin-left: auto;
         &__number {
             margin: 5px 10px;
         }
@@ -85,7 +88,6 @@ export default {
     }
     .actions {
         font-size: 16px;
-        margin-left: 15px;
         span {
             border-bottom: 1px solid $black;
             cursor: pointer;
@@ -94,5 +96,8 @@ export default {
                 color: $green;
             }
         }
+    }
+    .price {
+        margin-left: auto;
     }
 </style>

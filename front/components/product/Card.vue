@@ -5,7 +5,7 @@
     </transition>
     <div class="card-body">
       <h5 class="card-title">{{ product.name }}</h5>
-      <h4>{{ formatPrice(product.price) }}</h4>
+      <h4>${{ showPrice(product.price) }}</h4>
     </div>
     <div class="card-body btns">
       <router-link :to="`/products/${product.id}`" class="button button--primary">More</router-link>
@@ -16,6 +16,7 @@
 
 <script>
   import { mapState } from 'vuex'
+  import { formatPrice } from '~/helpers'
 
   export default {
     name: 'ProductCard',
@@ -37,9 +38,8 @@
       }
     },
     methods: {
-      formatPrice(value) {
-        let val = (value / 1).toFixed(2).replace('.', ',')
-        return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
+      showPrice(price) {
+        return formatPrice(price)
       },
       addToBasket() {
         if (this.productInCart) return
