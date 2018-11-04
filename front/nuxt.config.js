@@ -45,7 +45,7 @@ module.exports = {
   ],
   plugins: [
     '~plugins/notifications',
-    '~/plugins/eventbus',
-    '~/plugins/localstorage'
+    '~plugins/eventbus',
+    '~plugins/localstorage'
   ]
 }
