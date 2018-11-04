@@ -27,6 +27,8 @@ class CreateProductsTable extends Migration
             $table->boolean('active')->default(true);
 
             $table->integer("category_id")->nullable();
+
+            $table->foreign('id')->references('product_id')->on('product_order');
         });
     }
 
