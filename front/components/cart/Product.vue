@@ -7,6 +7,9 @@
             <div class="count__number">{{ getCount(product.id) || 1 }}</div>
             <div class="count__btn" @click="changeCount(product, -1)"><span>-</span></div>
         </div>
+        <div class="actions">
+            <span @click="deleteProduct(product.id)">Remove</span>
+        </div>
     </div>
 </template>
 
@@ -31,10 +34,17 @@ export default {
         changeCount(product, count) {
             this.$store.dispatch('cart/changeCountOfProduct', { productId: this.product.id, number: count })
         },
-        getCount(id) {
+        getProduct(id) {
             let product = this.products.filter(p => p.id === id)[0]
             let index = this.products.indexOf(product)
+            return { product, index }
+        },
+        getCount(id) {
+            let { index } = this.getProduct(id)
             return this.counts[index]
+        },
+        deleteProduct(id) {
+            this.$store.dispatch('cart/deleteProduct', { productId: id })
         }
     }
 }
@@ -44,6 +54,7 @@ export default {
     @import "~assets/scss/vars";
     // colors
     $black: map_get($colors, black);
+    $green: map_get($colors, green2);
     .product-cart {
         border: 1px solid $black;
         border-radius: 15px;
@@ -71,6 +82,18 @@ export default {
             justify-content: center;
             align-items: center;
             cursor: pointer;
+        }
+    }
+    .actions {
+        font-size: 16px;
+        margin-left: 15px;
+        span {
+            border-bottom: 1px solid $black;
+            cursor: pointer;
+            &:hover {
+                border-color: $green;
+                color: $green;
+            }
         }
     }
 </style>

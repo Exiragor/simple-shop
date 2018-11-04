@@ -30,6 +30,12 @@ export const actions = {
       commit('changeProductCount', { index, number})
       saveCartToLs(state)
     }
+  },
+  deleteProduct({state, commit}, { productId }) {
+    let product = state.products.filter(p => p.id === productId)[0]
+    let index = state.products.indexOf(product)
+    commit('removeProduct', index)
+    saveCartToLs(state)
   }
 }
 
@@ -55,6 +61,11 @@ export const mutations = {
   changeProductCount(state, { index, number }) {
     let count = state.counts[index] + number
     Vue.set(state.counts, index, count)
+  },
+  removeProduct(state, index) {
+    state.products.splice(index, 1)
+    state.counts.splice(index, 1)
+    state.count -= 1
   }
 }
 
