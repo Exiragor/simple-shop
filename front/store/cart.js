@@ -1,11 +1,17 @@
 import Vue from 'vue'
 import { saveCartToLs, getCartFromLs, getProduct } from '../helpers'
+import { makeOrder } from '~/api/orders'
 
 export const state = () => ({
   products: [],
   counts: [],
   sum: 0,
   count: 0,
+  clientInfo: {
+    firstName: 'Test',
+    lastName: 'test',
+    phone: '+79213123'
+  }
 })
 
 export const actions = {
@@ -34,6 +40,24 @@ export const actions = {
     let { index } = getProduct(state.products, productId)
     commit('removeProduct', index)
     saveCartToLs(state.products, state.counts)
+  },
+  async makeOrder({state}) {
+    let fields = state.clientInfo
+    let sum = 0
+    for (let index in this.products) {
+      sum += this.products[index].price * this.counts[index]
+    }
+    fields.sum = sum
+    let products = []
+    for (let index in state.products) {
+      let product = {
+        id: state.products[index].id,
+        count: state.counts[index]
+      }
+      products.push(product)
+    }
+    let res = await makeOrder(fields, products)
+    console.log(res)
   }
 }
 

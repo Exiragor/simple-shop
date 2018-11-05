@@ -9,6 +9,7 @@ export function makeOrder(fields, products) {
         firstName: fields.firstName,
         lastName: fields.lastName,
         phone: fields.phone,
+        sum: fields.sum,
         products
     })
 }

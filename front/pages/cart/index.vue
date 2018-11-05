@@ -36,7 +36,7 @@
         return formatPrice(sum)
       },
       makeOrder() {
-        
+        this.$store.dispatch('cart/makeOrder')
       }
     }
   }
