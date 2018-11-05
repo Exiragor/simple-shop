@@ -18,6 +18,10 @@ class OrdersController extends Controller
         $order->status = 'new';
         $order->save();
 
+        foreach ($request->products as $product) {
+            $order->products()->attach($product['id'], ['product_count' => $product['count']]);
+        }
+
         return response('OK');
     }
 }
