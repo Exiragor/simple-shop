@@ -44,8 +44,8 @@ export const actions = {
   async makeOrder({state}) {
     let fields = state.clientInfo
     let sum = 0
-    for (let index in this.products) {
-      sum += this.products[index].price * this.counts[index]
+    for (let index in state.products) {
+      sum += state.products[index].price * state.counts[index]
     }
     fields.sum = sum
     let products = []
@@ -57,7 +57,6 @@ export const actions = {
       products.push(product)
     }
     let res = await makeOrder(fields, products)
-    console.log(res)
   }
 }
 
