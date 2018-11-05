@@ -17,4 +17,4 @@ Route::get('products', 'Api\ProductsController@index');
 Route::get('products/{id}', 'Api\ProductsController@get');
 Route::get('/comments', 'Api\CommentsController@index');
 Route::post('/comments', 'Api\CommentsController@create');
-
+Route::post('/orders', 'Api\OrdersController@store');

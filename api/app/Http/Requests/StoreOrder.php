@@ -28,7 +28,6 @@ class StoreOrder extends FormRequest
             'lastName' => 'required',
             'phone' => 'required',
             'products' => 'required|array',
-            'products.*' => 'object',
             'products.*.id' => 'integer|exists:products,id',
             'products.*.count' => 'integer|min:1'
         ];
