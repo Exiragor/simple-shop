@@ -26,7 +26,7 @@ class StoreOrder extends FormRequest
         return [
             'firstName' => 'required',
             'lastName' => 'required',
-            'phone' => 'required|phone',
+            'phone' => 'required',
             'products' => 'required|array',
             'products.*' => 'object',
             'products.*.id' => 'integer|exists:products,id',

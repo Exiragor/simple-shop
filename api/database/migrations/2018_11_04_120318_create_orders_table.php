@@ -22,8 +22,6 @@ class CreateOrdersTable extends Migration
             $table->string('phone', 50);
             $table->decimal('sum', 21, 8);
             $table->enum('status', ['new', 'inProcess', 'canceled', 'finished']);
-
-            $table->foreign('id')->references('order_id')->on('product_order');
         });
     }
 

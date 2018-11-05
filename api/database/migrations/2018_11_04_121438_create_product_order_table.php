@@ -20,6 +20,9 @@ class CreateProductOrderTable extends Migration
             $table->integer('product_id')->unsigned();
             $table->integer('order_id')->unsigned();
             $table->integer('product_count')->unsigned()->nullable();
+
+            $table->foreign('order_id')->references('id')->on('orders');
+            $table->foreign('product_id')->references('id')->on('products');
         });
     }
 
