@@ -24,9 +24,10 @@ class StoreOrder extends FormRequest
     public function rules()
     {
         return [
-            'firstName' => 'required',
-            'lastName' => 'required',
-            'phone' => 'required',
+            'firstName' => 'required|String',
+            'lastName' => 'required|String',
+            'phone' => 'required|String',
+            'sum' => 'required|Numeric',
             'products' => 'required|array',
             'products.*.id' => 'integer|exists:products,id',
             'products.*.count' => 'integer|min:1'
