@@ -31,14 +31,19 @@
     },
     methods: {
       sortProductsForColumns(products, columns) {
-        let result = [], x = [], col = columns - 1
-        for (let [index, product] of products.entries()) {
-          x.push(product)
-          if (index === col) {
-            col += columns
-            result.push(x)
-            x = []
+        let result = []
+        if (products.length > columns) {
+          let x = [], col = columns - 1
+          for (let [index, product] of products.entries()) {
+            x.push(product)
+            if (index === col) {
+              col += columns
+              result.push(x)
+              x = []
+            }
           }
+        } else {
+          result.push(products)
         }
 
         return result
