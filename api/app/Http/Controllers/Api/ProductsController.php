@@ -15,7 +15,7 @@ class ProductsController extends Controller
         $product = $product->newQuery();
 
         if ($request->has('name')) {
-            $product->where('name', 'like', '%' . $request->input('name') . '%');
+            $product->where('name', 'like', '%' . urldecode($request->input('name')) . '%');
         }
 
         $count = $request->get('count');
