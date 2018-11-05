@@ -1,10 +1,11 @@
 @import "vars";
+@import "components/buttons";
+@import "components/notifications";
 @import "base/flex";
 @import "base/margin";
 @import "base/padding";
 @import "base/position";
-@import "components/buttons";
-@import "components/notifications";
+@import "base/fontsize";
 
 $white: map_get($colors, white);
 $black: map_get($colors, black);

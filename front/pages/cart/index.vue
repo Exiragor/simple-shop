@@ -2,8 +2,11 @@
   <section class="container main pt30">
     <h1 class="text-center mb35"> Cart</h1>
     <product v-for="product in products" :key="product.id" :product="product" />
-    <div class="result mt30">
-      <span>Result: ${{ getSum() }}</span>
+    <div class="result flex mt30">
+      <span class="ml-auto fs30">Result: ${{ getSum() }}</span>
+    </div>
+    <div class="flex mt15">
+      <div class="button button--primary ml-auto" @click="makeOrder()">Оформить</div>
     </div>
   </section>
 </template>
@@ -31,17 +34,14 @@
           sum += this.products[index].price * this.counts[index]
         }
         return formatPrice(sum)
+      },
+      makeOrder() {
+        
       }
     }
   }
 </script>
 
 <style lang="scss" scoped>
-  .result {
-    display: flex;
-    font-size: 30px;
-    span {
-      margin-left: auto;
-    }
-  }
+
 </style>
