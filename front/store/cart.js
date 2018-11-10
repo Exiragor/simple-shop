@@ -25,9 +25,11 @@ export const actions = {
   },
   loadCartFromLs({commit}) {
     let { products, counts } = getCartFromLs()
-    commit('setProducts', products)
-    commit('setCounts', counts)
-    commit('setCount', counts.length)
+    if (products && counts) {
+      commit('setProducts', products)
+      commit('setCounts', counts)
+      commit('setCount', counts.length)
+    }
   },
   changeCountOfProduct({state, commit}, { productId, number }) {
     let { index } = getProduct(state.products, productId)
