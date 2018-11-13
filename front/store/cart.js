@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import { saveCartToLs, getCartFromLs, getProduct } from '../helpers'
+import { saveCartToLs, getCartFromLs, getProduct, isCartExist } from '../helpers'
 import { makeOrder } from '~/api/orders'
 
 export const state = () => ({
@@ -24,10 +24,12 @@ export const actions = {
     }
   },
   loadCartFromLs({commit}) {
-    let { products, counts } = getCartFromLs()
-    commit('setProducts', products)
-    commit('setCounts', counts)
-    commit('setCount', counts.length)
+    if (isCartExist()) {
+      let { products, counts } = getCartFromLs()
+      commit('setProducts', products)
+      commit('setCounts', counts)
+      commit('setCount', counts.length)
+    }
   },
   changeCountOfProduct({state, commit}, { productId, number }) {
     let { index } = getProduct(state.products, productId)
