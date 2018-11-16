@@ -1,5 +1,5 @@
-<template lang="pug">
-    notifications.fixed.mt80
+<template>
+    <notifications class="fixed mt80" />
 </template>
 
 <script>

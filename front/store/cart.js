@@ -8,9 +8,9 @@ export const state = () => ({
   sum: 0,
   count: 0,
   clientInfo: {
-    firstName: 'Test',
-    lastName: 'test',
-    phone: '+79213123'
+    firstName: '',
+    lastName: '',
+    phone: ''
   }
 })
 
@@ -47,7 +47,19 @@ export const actions = {
     commit('changeSum')
     saveCartToLs(state.products, state.counts)
   },
-
+  changeClientInfo({commit}, { name, value }) {
+    switch (name) {
+      case 'firstName':
+        commit('changeClientInfoField', { name, value})
+        break
+      case 'lastName':
+        commit('changeClientInfoField', { name, value})
+        break
+      case 'phone':
+        commit('changeClientInfoField', { name, value})
+        break
+    }
+  },
   async makeOrder({state}) {
     let fields = state.clientInfo
     fields.sum = state.sum
@@ -59,7 +71,15 @@ export const actions = {
       }
       products.push(product)
     }
-    let res = await makeOrder(fields, products)
+    let { data } = await makeOrder(fields, products)
+    return data === "OK"
+  },
+  clear({state, commit}) {
+    commit('setProducts', [])
+    commit('setCounts', [])
+    commit('setCount', 0)
+    commit('changeSum')
+    saveCartToLs(state.products, state.counts)
   }
 }
 
@@ -97,5 +117,8 @@ export const mutations = {
       sum += state.products[index].price * state.counts[index]
     }
     state.sum = sum
+  },
+  changeClientInfoField(state, { name, value }) {
+    state.clientInfo[name] = value
   }
 }

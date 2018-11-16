@@ -7,7 +7,7 @@
       <span class="ml-auto fs30">Result: ${{ sum }}</span>
     </div>
     <div class="flex mt15">
-      <div class="button button--primary ml-auto" @click="makeOrder()">Оформить</div>
+      <div class="button button--primary ml-auto" @click="makeOrder()">Make order</div>
     </div>
   </section>
 </template>
@@ -31,12 +31,8 @@
     },
     methods: {
       makeOrder() {
-        this.$store.dispatch('cart/makeOrder')
+        this.$router.push('/cart/order')
       }
     }
   }
 </script>
-
-<style lang="scss" scoped>
-
-</style>
