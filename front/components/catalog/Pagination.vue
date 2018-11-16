@@ -1,31 +1,47 @@
-<template lang="pug">
-  nav(v-if="lastPage")
-    ul.pagination.justify-content-center
-      li.page-item(:class="{disabled: currentPage <= 1}")
-        a.page-link(href="#" @click="changePage(currentPage - 1)") Previous
-      li.page-item(v-if="currentPage - 1 > 1")
-        a.page-link(href="#" @click="changePage(1)") 1
-      li.page-item.disabled(v-if="currentPage - 2 > 1")
-        a.page-link(href="#") ...
-      li.page-item(v-for="(page, index) in pages" :key="index" :class="{active: page === currentPage }")
-        a.page-link(href="#" @click="changePage(page)") {{ page }}
-      li.page-item.disabled(v-if="currentPage + 2 < lastPage")
-        a.page-link(href="#") ...
-      li.page-item(v-if="currentPage + 1 < lastPage")
-        a.page-link(href="#" @click="changePage(lastPage)") {{ lastPage }}
-      li.page-item(:class="{disabled: currentPage >= lastPage}")
-        a.page-link(href="#" @click="changePage(currentPage + 1)") Next
+<template>
+  <nav v-if="lastPage">
+    <ul class="pagination justify-content-center">
+      <li class="page-item" :class="{disabled: currentPage <= 1}">
+        <a class="page-link" href="#" @click="changePage(currentPage - 1)">Previous</a>
+      </li>
+      <li class="page-item" v-if="currentPage - 1 > 1">
+        <a class="page-link" href="#" @click="changePage(1)">1</a>
+      </li>
+      <li class="page-item disabled" v-if="currentPage - 2 > 1">
+        <a class="page-link" href="#">...</a>
+      </li>
+      <li class="page-item" v-for="(page, index) in pages" :key="index" :class="{active: page === currentPage }">
+        <a class="page-link" href="#" @click="changePage(page)">{{ page }}</a>
+      </li>
+      <li class="page-item disabled" v-if="currentPage + 2 < lastPage">
+        <a class="page-link" href="#">...</a>
+      </li>
+      <li class="page-item" v-if="currentPage + 1 < lastPage">
+        <a class="page-link" href="#" @click="changePage(lastPage)">{{ lastPage }}</a>
+      </li>
+      <li class="page-item" :class="{disabled: currentPage >= lastPage}">
+        <a class="page-link" href="#" @click="changePage(currentPage + 1)">Next</a>
+      </li>
+    </ul>
+  </nav>
 </template>
 
 <script>
   export default {
     name: 'Pagination',
+    props: {
+      lastPage: {
+        type: Number,
+        default: 0
+      },
+      value: {
+        type: Number,
+        default: 1
+      }
+    },
     computed: {
       currentPage() {
-        return +this.$route.params.page || 1
-      },
-      lastPage() {
-        return this.$store.state.products.lastPage || 0
+        return +this.value
       },
       pages() {
         let page = this.currentPage === 1 ? this.currentPage + 1 : this.currentPage
@@ -44,7 +60,7 @@
     methods: {
       changePage(page) {
         if (page > 0 && page <= this.lastPage)
-          this.$router.push({name: 'page-page', params: { page }})
+          this.$emit('input', page)
       }
     }
   }
