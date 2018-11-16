@@ -20,6 +20,7 @@ export const actions = {
       commit('addNewCount', 1)
       commit('addProduct', product)
       commit('changeCount', 1)
+      commit('changeSum')
       saveCartToLs(state.products, state.counts)
     }
   },
@@ -29,27 +30,27 @@ export const actions = {
       commit('setProducts', products)
       commit('setCounts', counts)
       commit('setCount', counts.length)
+      commit('changeSum')
     }
   },
   changeCountOfProduct({state, commit}, { productId, number }) {
     let { index } = getProduct(state.products, productId)
     if (state.counts[index] + number > 0) {
       commit('changeProductCount', { index, number})
+      commit('changeSum')
       saveCartToLs(state.products, state.counts)
     }
   },
   deleteProduct({state, commit}, { productId }) {
     let { index } = getProduct(state.products, productId)
     commit('removeProduct', index)
+    commit('changeSum')
     saveCartToLs(state.products, state.counts)
   },
+
   async makeOrder({state}) {
     let fields = state.clientInfo
-    let sum = 0
-    for (let index in state.products) {
-      sum += state.products[index].price * state.counts[index]
-    }
-    fields.sum = sum
+    fields.sum = state.sum
     let products = []
     for (let index in state.products) {
       let product = {
@@ -89,5 +90,12 @@ export const mutations = {
     state.products.splice(index, 1)
     state.counts.splice(index, 1)
     state.count -= 1
+  },
+  changeSum(state) {
+    let sum = 0
+    for (let index in state.products) {
+      sum += state.products[index].price * state.counts[index]
+    }
+    state.sum = sum
   }
 }
