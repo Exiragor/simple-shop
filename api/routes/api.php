@@ -17,6 +17,6 @@ use App\Http\Controllers\Api\OrdersController;
 
 Route::get('products', [ProductsController::class, 'index']);
 Route::get('products/{id}', [ProductsController::class, 'get']);
-Route::get('/comments', [CommentsController::class, 'index']);
-Route::post('/comments', [CommentsController::class, 'store']);
-Route::post('/orders', [OrdersController::class, 'store']);
+Route::get('comments', [CommentsController::class, 'index']);
+Route::post('comments', [CommentsController::class, 'store']);
+Route::post('orders', [OrdersController::class, 'store']);
