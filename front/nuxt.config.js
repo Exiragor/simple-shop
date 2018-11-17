@@ -46,6 +46,7 @@ module.exports = {
   plugins: [
     '~/plugins/notifications',
     '~/plugins/eventbus',
-    '~/plugins/localstorage'
+    '~/plugins/localstorage',
+    '~/plugins/vuelidate'
   ]
 }
