@@ -1,0 +1,29 @@
+// Radius
+$border-radius: (
+  square: 0,
+  circle: 50%
+);
+
+@mixin border {
+    @for $i from 1 to 10 {
+      .brdr-#{$i} {
+        border: #{$i}px solid;
+      }
+      .brdr-top-#{$i} {
+        border-top-width: #{$i}px;
+        border-top-style: solid;
+      }
+      .brdr-bottom-#{$i} {
+        border-bottom-width: #{$i}px;
+        border-bottom-style: solid;
+      }
+    }
+    @each $name, $value in $border-radius {
+      .brdr-#{$name} {
+        border-radius: #{$value};
+      }
+    }
+    @include color-selectors($colors, 'brdr-cl', 'border-color');
+}
+  
+@include border;
