@@ -20,7 +20,7 @@ class CommentsController extends Controller
         return CommentResource::collection($comments);
     }
 
-    public function create(Request $request, Comment $comment) {
+    public function store(Request $request, Comment $comment) {
         $name = $request->json('name');
         $text = $request->json('text');
 
