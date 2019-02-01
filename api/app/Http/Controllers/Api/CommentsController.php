@@ -15,7 +15,7 @@ class CommentsController extends Controller
         $page = $request->get('page');
         $page = (is_numeric($page) && $page > 0) ? $page - 1 : 0;
 
-        $comments = $comment->active()->skip($page * $count)->paginate($count);
+        $comments = $comment->skip($page * $count)->paginate($count);
 
         return CommentResource::collection($comments);
     }

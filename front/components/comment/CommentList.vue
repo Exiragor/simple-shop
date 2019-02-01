@@ -6,7 +6,7 @@
     >
       <h4 class="author">{{ comment.user }}</h4>
       <p class="message">{{ comment.message }}</p>
-      <span class="data">{{ comment.data }}</span>
+      <span class="data">{{ comment.date }}</span>
 
     </div>
   </div>
