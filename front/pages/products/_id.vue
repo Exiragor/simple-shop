@@ -1,18 +1,27 @@
-<template lang="pug">
-  .container
-    breadcrumbs.mb35(:active-route="product.name")
-    product-detail(:product="product")
+<template>
+  <div class="container">
+    <breadcrumbs class="mb35"
+                 :active-route="product.name"
+    ></breadcrumbs>
+    <product-detail :product="product"
+    ></product-detail>
+
+    <comment-list></comment-list>
+
+  </div>
 </template>
 
 <script>
   import { mapState } from 'vuex'
   import ProductDetail from '~/components/product/Detail.vue'
   import Breadcrumbs from '~/components/common/Breadcrumbs.vue'
+  import CommentList from '~/components/comment/CommentList.vue'
   export default {
     name: 'Product',
     components: {
       ProductDetail,
-      Breadcrumbs
+      Breadcrumbs,
+      CommentList
     },
     async fetch ({ store, params }) {
       await store.dispatch("products/loadProduct", { productID: params.id })
