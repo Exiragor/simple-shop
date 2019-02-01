@@ -3,6 +3,8 @@
 use App\Http\Controllers\Api\ProductsController;
 use App\Http\Controllers\Api\CommentsController;
 use App\Http\Controllers\Api\OrdersController;
+use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\UsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +22,9 @@ Route::get('products/{id}', [ProductsController::class, 'get']);
 Route::get('comments', [CommentsController::class, 'index']);
 Route::post('comments', [CommentsController::class, 'store']);
 Route::post('orders', [OrdersController::class, 'store']);
+
+Route::post('auth/login', [AuthController::class, 'login']);
+
+Route::middleware('jwt.auth')->group(function () {
+    Route::get('users/me', [UsersController::class, 'me']);
+});
