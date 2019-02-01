@@ -6,8 +6,13 @@ export function saveCartToLs(products, counts) {
 }
 
 export function getCartFromLs() {
-    let products = JSON.parse(Vue.ls.get('cart.products'))
-    let counts = JSON.parse(Vue.ls.get('cart.counts'))
+    let products = Vue.ls.get('cart.products')
+    let counts = Vue.ls.get('cart.counts')
+    if (products && counts) {
+      products = JSON.parse(products)
+      counts = JSON.parse(counts)
+    }
+    // let counts = JSON.parse(Vue.ls.get('cart.counts'))
     return { products, counts }
 }
 
