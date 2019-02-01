@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->enum('role', ['client', 'manager', 'admin']);
 
             $table->text('password');
-            $table->text('remember_token')->nullable();
+            $table->text('secret_word')->nullable();
         });
     }
 

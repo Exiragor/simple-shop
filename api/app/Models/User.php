@@ -3,12 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Laravel\Passport\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Model
 {
-    use HasApiTokens, Notifiable;
+    use Notifiable;
     /**
      * The attributes that are mass assignable.
      *
@@ -23,6 +22,6 @@ class User extends Model
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password', 'secret_word',
     ];
 }
