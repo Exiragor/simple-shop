@@ -14,4 +14,11 @@ class Comment extends Model
     {
         return $query->where(compact('active'));
     }
+
+  public function user()
+  {
+    return $this->belongsTo(
+        '\App\Models\User'
+    );
+  }
 }

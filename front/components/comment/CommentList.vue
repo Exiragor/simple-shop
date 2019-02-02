@@ -1,15 +1,19 @@
 <template>
-  <div class="comments-items">
-    <div class="comment-item"
-    v-for="comment in comments "
-     :key="comment"
-    >
-      <h4 class="author">{{ comment.user }}</h4>
-      <p class="message">{{ comment.message }}</p>
-      <span class="data">{{ comment.date }}</span>
+  <div>
+    <h2 class="title">Comments</h2>
+    <div class="comments-items">
+      <div class="comment-item"
+           v-for="comment in comments "
+           :key="comment"
+      >
+        <h4 class="author">{{ comment.user.name }}</h4>
+        <p class="message">{{ comment.message }}</p>
+        <span class="data">{{ comment.date }}</span>
 
+      </div>
     </div>
   </div>
+
 </template>
 
 <script>
@@ -73,4 +77,9 @@
   padding: 10px 0 0;
   color: rgba(0,0,0, .8);
 }
+  .title {
+    text-align: center;
+    margin: 0;
+    padding: 60px 0 10px;
+  }
 </style>

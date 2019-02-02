@@ -14,8 +14,10 @@ class CommentsController extends Controller
         $count = (is_numeric($count) && $count > 0) ? $count : 20;
         $page = $request->get('page');
         $page = (is_numeric($page) && $page > 0) ? $page - 1 : 0;
+        //where('product_id', $request->get('product_id', '53'))
+        $comments = $comment->where('product_id', $request->get('product_id', '53'))->skip($page * $count)->paginate($count);
+        $comments->load('user');
 
-        $comments = $comment->skip($page * $count)->paginate($count);
 
         return CommentResource::collection($comments);
     }

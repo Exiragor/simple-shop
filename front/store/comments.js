@@ -7,8 +7,8 @@ export const state = () => ({
 })
 
 export const actions = {
-  async loadComments({commit, state}, { count, page }) {
-    let { data } = await loadComments(count, page)
+  async loadComments({commit, state}, { count, page , product_id}) {
+    let { data } = await loadComments(count, page, product_id)
     commit('setComments', data.data)
     commit('setLastPage', data.meta.last_page)
   }

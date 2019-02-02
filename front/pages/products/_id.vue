@@ -25,7 +25,7 @@
     },
     async fetch ({ store, params }) {
       await store.dispatch("products/loadProduct", { productID: params.id })
-      await store.dispatch("comments/loadComments", { count: 20, page: 1 })
+      await store.dispatch("comments/loadComments", { count: 20, page: 1, product_id: params.id })
     },
     computed: {
       ...mapState({

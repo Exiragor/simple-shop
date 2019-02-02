@@ -25,4 +25,10 @@ class User extends Authenticatable
         'password', 'secret_word',
     ];
 
+  public function comment()
+  {
+    return $this->hasMany(
+       '\App\Model\Comment'
+   );
+  }
 }
