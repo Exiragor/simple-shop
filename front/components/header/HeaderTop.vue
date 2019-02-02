@@ -1,19 +1,24 @@
 <template>
   <header class="header flex">
     <logo class="logo pl17" />
-    <shopping-cart class="cart" />
+    <div class="cart flex">
+      <account-icon />
+      <shopping-cart />
+    </div>
   </header>
 </template>
 
 <script>
   import Logo from  './Logo'
   import ShoppingCart from './ShoppingCart'
+  import AccountIcon from './AccountIcon'
 
   export default {
     name: 'HeaderTop',
     components: {
       Logo,
       ShoppingCart,
+      AccountIcon
     }
   }
 </script>
