@@ -1,0 +1,29 @@
+@mixin margin {
+  @for $i from 0 to 100 {
+    .m#{$i} {
+      margin: #{$i}px;
+    }
+    .mx#{$i} {
+      margin-left: #{$i}px;
+      margin-right: #{$i}px;
+    }
+    .my#{$i} {
+      margin-top: #{$i}px;
+      margin-bottom: #{$i}px;
+    }
+    .mt#{$i} {
+      margin-top: #{$i}px;
+    }
+    .mr#{$i} {
+      margin-right: #{$i}px;
+    }
+    .mb#{$i} {
+      margin-bottom: #{$i}px;
+    }
+    .ml#{$i} {
+      margin-left: #{$i}px;
+    }
+  }
+}
+
+@include margin;
