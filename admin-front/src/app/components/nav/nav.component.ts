@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Link } from '../modules/link/Link';
+import { Link } from '../../modules/link/Link';
 
 @Component({
   selector: 'app-nav',

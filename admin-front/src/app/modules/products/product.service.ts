@@ -1,7 +1,22 @@
-import { request } from '../request'
+import { Injectable } from '@angular/core';
+import {HttpClient} from "@angular/common/http";
+import { host } from '../request'
+import {Observable} from "rxjs/internal/Observable";
+import {ProductsResponse} from "./product";
 
-const productUrl = '/products';
+@Injectable({
+  providedIn: 'root'
+})
+export class ProductService {
 
-export const getProducts = async () => {
-  return await request.get(productUrl, { page: 1, count: 20 })
-};
+  readonly endPoint: string;
+  public products = [];
+
+  constructor(private http: HttpClient) {
+    this.endPoint = host + '/products';
+  }
+
+  getProducts(page, count): Observable<ProductsResponse> {
+    return this.http.get<ProductsResponse>(this.endPoint, { params: { page, count } })
+  }
+}

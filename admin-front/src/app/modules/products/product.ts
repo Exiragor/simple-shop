@@ -6,7 +6,7 @@ export class Product {
   code: string;
   description: string;
   price: string;
-  img_path: string;
+  img: string;
   specifications: Specification[];
   tags: string[];
   active: boolean;
@@ -15,4 +15,9 @@ export class Product {
 export class Specification {
   name: string;
   value: any;
+}
+
+export class ProductsResponse {
+  data: Product[];
+  totalCount: number;
 }

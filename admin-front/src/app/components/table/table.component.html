@@ -9,11 +9,7 @@
         <thead class="text-primary">
           <th *ngFor="let field of fields">{{ field }}</th>
         </thead>
-        <tbody>
-        <tr *ngFor="let value of table.values">
-          <td *ngFor="let field of table.select">{{ value[field] }}</td>
-        </tr>
-        </tbody>
+        <ng-content></ng-content>
       </table>
     </div>
   </div>
