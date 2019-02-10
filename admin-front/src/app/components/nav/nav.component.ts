@@ -15,7 +15,7 @@ export class NavComponent implements OnInit {
   ngOnInit() {
     this.links = [
       { path: '/home', icon: 'dashboard', name: 'Main'},
-      { path: '/products', icon: 'dashboard', name: 'Products'},
+      { path: '/products/1', icon: 'dashboard', name: 'Products'},
       { path: '/orders', icon: 'dashboard', name: 'Orders'}
     ]
   }
