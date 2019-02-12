@@ -1,5 +1,5 @@
 export class Link {
-  path: string;
+  path: string | string[];
   icon: string;
   name: string;
 }

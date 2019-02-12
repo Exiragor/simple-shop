@@ -1,3 +1,6 @@
+import {Meta} from "../meta/meta";
+
+
 export class Product {
   id: number;
   created_at: string;
@@ -19,5 +22,5 @@ export class Specification {
 
 export class ProductsResponse {
   data: Product[];
-  totalCount: number;
+  meta: Meta;
 }

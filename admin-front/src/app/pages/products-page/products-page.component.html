@@ -11,6 +11,6 @@
         <td>{{ product.updated_at }}</td>
       </tr>
     </app-table>
-    <app-pagination [currentPage]="1" [lastPage]="5" (onChangePage)="onChangePage($event)"></app-pagination>
+    <app-pagination [currentPage]="currentPage" [lastPage]="lastPage" (onChangePage)="onChangePage($event)"></app-pagination>
   </div>
 </div>

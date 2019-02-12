@@ -17,21 +17,32 @@ export class ProductsPageComponent implements OnInit {
 
 
   constructor(private productService: ProductService, private router: Router, private route: ActivatedRoute) {
-
     this.fields = ['', 'ID', 'Name', 'Updated'];
   }
 
   ngOnInit() {
+    this.getCurrentPage();
     this.getProducts();
+
+    this.route.url.subscribe(url => {
+      this.getCurrentPage();
+      this.getProducts();
+    });
   }
 
   getProducts() {
-    let page = this.route.snapshot.paramMap.get('page');
-    this.productService.getProducts(page,20)
-      .subscribe((resp: ProductsResponse) => { this.products = resp.data; this.lastPage = resp.meta.last_page });
+    this.productService.getProducts(this.currentPage,20)
+      .subscribe((resp: ProductsResponse) => {
+        this.products = resp.data;
+        this.lastPage = resp.meta.last_page;
+      });
   }
 
   onChangePage(page: number) {
     this.router.navigate(['/products', page]);
+  }
+
+  getCurrentPage() {
+    this.currentPage = +this.route.snapshot.paramMap.get('page')
   }
 }
