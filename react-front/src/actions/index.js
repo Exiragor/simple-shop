@@ -1,21 +1,15 @@
-import { loadProducts } from '../api/products'
+import { loadProductsApi } from '../api/products'
 
-export const loadProducts = async (page, count, query = {}) => {
-    let products = await loadProducts(page, count, query);
+export const loadProducts = (page, count, query = {}) => async dispatch => {
+    let { data } = await loadProductsApi(count, page, query);
 
-    return ({
+    dispatch ({
         type: 'SET_PRODUCTS',
-        products
+        products: data.data,
+        lastPage: data.meta.last_page
     })
-}
-  
-export const setVisibilityFilter = filter => ({
-    type: 'SET_VISIBILITY_FILTER',
-    filter
-})
 
-export const toggleTodo = id => ({
-    type: 'TOGGLE_TODO',
-    id
-})
+    return data;
+}
+
   

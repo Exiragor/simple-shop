@@ -2,7 +2,7 @@ import req from './request';
 
 let mainUrl = '/products';
 
-export function loadProducts(count, page, query = false) {
+export function loadProductsApi(count, page, query = false) {
   let queryStr = '';
   if (query) {
     for (let param in query) {

@@ -1,5 +1,5 @@
 const initialState = {
-    list: [],
+    list: [{name: 'test1'}, {name: 'test2'}],
     current: {},
     lastPage: 0,
     query: {
@@ -12,7 +12,8 @@ const products = (state = initialState, action) => {
         case 'SET_PRODUCTS':
             return {
                 ...state,
-                list: action.products
+                list: action.products,
+                lastPage: action.lastPage
             }
         case 'SET_LAST_PAGE':
             return {

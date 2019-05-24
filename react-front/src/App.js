@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Home } from './pages/index.js';
 
-function App() {
+function App(app) {
   return (
     <div className="App">
       <header className="App-header"></header>
