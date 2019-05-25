@@ -25,14 +25,12 @@ const products = (state = initialState, action) => {
                 ...state,
                 current: action.product
             }
-        case 'SET_QUERY_FIELD':
-            let query = {};
-            query[action.query.fieldName] = action.query.fieldValue
+        case 'SET_QUERY_FIELDS':
             return {
                 ...state,
                 query: {
                     ...state.query,
-                    ...query
+                    ...action.query
                 }
             }
         default:
