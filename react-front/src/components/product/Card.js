@@ -1,9 +1,10 @@
 import React from 'react';
+import { ProductType } from './types'
 import "./Card.css"
 
-export const ProductCard = ({product}) => (
+export const ProductCard = ({ product }) => (
     <div className="card">
-        <img className="card-img-top" src={product.img || '/images/no-product-img.png'} alt={product.name} />
+        <img className="card-img-top" src={ product.img || '/images/no-product-img.png' } alt={ product.name } />
         <div className="card-body">
             <h5 className="card-title">{ product.name }</h5>
             <h4>{ product.price }</h4>
@@ -14,3 +15,7 @@ export const ProductCard = ({product}) => (
         </div>
     </div>
 );
+
+ProductCard.propTypes = {
+    product: ProductType
+};

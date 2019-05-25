@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export const Search = ({ changeHandler, placeholder }) => (
     <nav>
@@ -7,3 +8,8 @@ export const Search = ({ changeHandler, placeholder }) => (
         </div>
     </nav>
 );
+
+Search.propTypes = {
+    placeholder: PropTypes.string,
+    changeHandler: PropTypes.func
+}

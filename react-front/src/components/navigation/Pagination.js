@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import cn from 'classnames';
 import './Pagination.css';
 
@@ -60,3 +61,9 @@ export const Pagination = ({ currentPage, lastPage, changePage }) => {
         </nav>
     )
 };
+
+Pagination.propTypes = {
+    currentPage: PropTypes.number.isRequired,
+    lastPage: PropTypes.number.isRequired,
+    changePage: PropTypes.func.isRequired
+}
