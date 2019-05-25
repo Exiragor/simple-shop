@@ -10,6 +10,7 @@ function App(app) {
       <HeaderTop />
       <Router>
         <Route exact path="/" component={Home} />
+        <Route exact path="/page/:page" component={Home} />
       </Router>
     </div>
   );

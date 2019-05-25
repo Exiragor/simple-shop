@@ -1,5 +1,5 @@
 const initialState = {
-    list: [{name: 'test1'}, {name: 'test2'}],
+    list: [],
     current: {},
     lastPage: 0,
     query: {
