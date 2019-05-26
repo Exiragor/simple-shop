@@ -1,2 +1,4 @@
 import React from 'react';
-export const Logo = () => <img className="logo" src="/images/logo.png" alt="logo" />;
+import { Link } from 'react-router-dom';
+
+export const Logo = () => <Link to="/"><img className="logo" src="/images/logo.png" alt="logo" /></Link> ;

@@ -1,4 +1,5 @@
 import React from 'react';
+import './Detail.css'
 
 export const ProductDetail = ({ product }) => (
     <div className="product">
@@ -6,7 +7,7 @@ export const ProductDetail = ({ product }) => (
             <div className="col-md-4 col-sm-12">
                 <img className="card-img-top" src={ product.img || '/images/no-product-img.png' } alt={ product.name } />
                 <div className="text-center mt-2">
-                    <button className="w-100 button button--primaty">Купить</button>
+                    <div className="w-100 button button--primary">Buy</div>
                     {
                         product.tags && product.tags.map(tag => 
                             <button className="button button--small button--primary-border tag mt-4" key={tag}>{ tag }</button>

@@ -1,10 +1,59 @@
-.App-header {
-  background-color: #282c34;
-  height: 100px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.button {
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  height: 40px;
+  padding: 0 20px;
+  font-size: 14px;
+  line-height: 1;
+  font-weight: bold;
+  transition: 0.3s all;
+}
+.button::after {
+  display: none;
+}
+.button:hover {
+  text-decoration: none;
+}
+.button--small {
+  height: 30px;
+  padding: 0 10px;
+}
+.button--medium {
+  height: 35px;
+  padding: 0 10px;
+}
+.button--large {
+  height: 40px;
+  padding: 0 55px;
+}
+.button--primary {
+  background-color: #00ae76;
+  border: 1px #00ae76 solid;
+  color: #fff;
+}
+.button--primary:hover {
+  background-color: #00c06f;
+  border: 1px #00c06f solid;
+  color: #fff;
+}
+.button--primary-border {
+  border: 1px #00ae76 solid;
+  background-color: #fff;
+  color: #00ae76;
+}
+.button--primary-border:hover {
+  background-color: #00ae76;
+  color: #fff;
+}
+.button--primary-link {
+  border-color: transparent;
+  background-color: transparent;
+  text-decoration: underline;
+  color: #00ae76;
+}
+.button--primary-link:hover {
+  text-decoration: none;
 }
