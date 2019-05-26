@@ -9,8 +9,7 @@ function App(app) {
     <div className="App">
       <HeaderTop />
       <Router>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/page/:page" component={Home} />
+        <Route exact path={['/', '/page/:page']} component={Home} />
       </Router>
     </div>
   );
