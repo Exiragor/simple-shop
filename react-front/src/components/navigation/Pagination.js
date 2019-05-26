@@ -5,11 +5,11 @@ import './Pagination.css';
 
 const generatePages = (currentPage, lastPage) => {
     let page = currentPage === 1 ? currentPage + 1 : currentPage
-    page = page === lastPage ? currentPage - 1 : page
+    page = page === lastPage ? page - 1 : page
 
     let pages = []
 
-    for (let i = page - 1; i <= page + 1; i++) {
+    for (let i = page - 1 || 1; i <= page + 1; i++) {
         if (i > lastPage)
             break;
         pages.push(i)
