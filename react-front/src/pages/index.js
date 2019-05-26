@@ -18,7 +18,7 @@ const mapStateToPaginationProps = state => ({
 
 const PaginationComponent = connect(mapStateToPaginationProps)(Pagination);
 
-export const Home = ({ match, history }) => {
+export const HomePage = ({ match, history }) => {
     const changePageHandler = (page) => history.push(`/page/${page}`);
 
     const searchChangeHandler = ({ target: { value } }) => {

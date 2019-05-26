@@ -1,6 +1,6 @@
 import React from 'react';
-import { ProductType } from './types'
-import "./Card.css"
+import { ProductType } from './types';
+import "./Card.css";
 
 export const ProductCard = ({ product }) => (
     <div className="card">

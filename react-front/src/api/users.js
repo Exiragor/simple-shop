@@ -1,6 +1,6 @@
-import { authReq } from './request'
+import { authReq } from './request';
 
-let mainUrl = '/users'
+let mainUrl = '/users';
 
 export const me = (token) => {
   return authReq(token).get(mainUrl + '/me');

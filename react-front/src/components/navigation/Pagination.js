@@ -4,18 +4,18 @@ import cn from 'classnames';
 import './Pagination.css';
 
 const generatePages = (currentPage, lastPage) => {
-    let page = currentPage === 1 ? currentPage + 1 : currentPage
-    page = page === lastPage ? page - 1 : page
+    let page = currentPage === 1 ? currentPage + 1 : currentPage;
+    page = page === lastPage ? page - 1 : page;
 
-    let pages = []
+    let pages = [];
 
     for (let i = page - 1 || 1; i <= page + 1; i++) {
         if (i > lastPage)
             break;
-        pages.push(i)
+        pages.push(i);
     }
 
-    return pages
+    return pages;
 }
 
 export const Pagination = ({ currentPage, lastPage, changePage }) => {

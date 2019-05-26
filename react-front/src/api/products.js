@@ -12,6 +12,6 @@ export function loadProductsApi(count, page, query = false) {
   return req.get(mainUrl + `?count=${count}&page=${page}` + queryStr);
 }
 
-export function loadProduct(id) {
+export function loadProductApi(id) {
   return req.get(mainUrl + `/${id}`);
 }

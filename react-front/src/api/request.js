@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from 'axios';
 
 const host = process.env.REACT_APP_API_HOST || 'http://localhost:8000';
 let request = axios.create({
