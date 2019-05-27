@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import './Product.css';
 import { formatPrice } from '../../helpers'
 import { store } from '../../store';
@@ -25,3 +26,11 @@ export const CartProduct = ({ product }) => {
         </div>
     );
 }
+
+CartProduct.propTypes = {
+    product: PropTypes.shape({
+        img: PropTypes.string,
+        name: PropTypes.string.isRequired,
+        price: PropTypes.string.isRequired,
+    })
+};

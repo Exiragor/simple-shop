@@ -2,11 +2,11 @@ import PropTypes from 'prop-types';
 
 export const ProductType = PropTypes.shape({
     img: PropTypes.string,
-    name: PropTypes.string.isRequired,
+    name: PropTypes.string,
     price: PropTypes.string,
-    code: PropTypes.string.isRequired,
+    code: PropTypes.string,
     description: PropTypes.string,
-    specifications: PropTypes.arrayOf(PropTypes.shape({ name: PropTypes.string, value: PropTypes.isRequired })),
+    specifications: PropTypes.arrayOf(PropTypes.shape({ name: PropTypes.string })),
     tags: PropTypes.arrayOf(PropTypes.string)
 });
 
