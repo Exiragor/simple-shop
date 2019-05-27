@@ -1,0 +1,12 @@
+.header {
+    height: 60px;
+    background-color: white;
+    padding: 10px 20px;
+}
+.logo {
+    max-width: 30px;
+}
+.shopping-cart i {
+    color: #00AE76;
+    font-size: 34px;
+}

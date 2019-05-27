@@ -1,0 +1,14 @@
+.card-body {
+    background-color: white;
+}
+.btns {
+    display: flex;
+    justify-content: space-between;
+    max-height: 80px;
+}
+.button {
+    width: 45%;
+}
+.card-img-top {
+    height: 195px;
+}

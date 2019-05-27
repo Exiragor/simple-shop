@@ -1,0 +1,6 @@
+.tag + .tag {
+    margin-left: 10px;
+}
+.field__title {
+    border-bottom: 1px solid #e9e9e9;
+}
