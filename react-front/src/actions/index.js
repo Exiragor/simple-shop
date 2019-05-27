@@ -32,4 +32,25 @@ export const changeProductQuery = query => dispatch => {
         type: 'SET_QUERY_FIELDS',
         query
     });
-}  
+} 
+
+export const addProductToCart = product => dispatch => {
+    dispatch({
+        type: 'CART_ADD_PRODUCT',
+        product
+    });
+}
+
+export const cartProductChangeCount = (id, count) => dispatch => {
+    dispatch({
+        type: 'CART_PRODUCT_CHANGE_COUNT',
+        id, count
+    });
+}
+
+export const cartDeleteProduct = id => dispatch => {
+    dispatch({
+        type: 'CART_DELETE_PRODUCT',
+        id
+    });
+}

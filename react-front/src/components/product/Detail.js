@@ -1,5 +1,6 @@
 import React from 'react';
-import './Detail.css'
+import './Detail.css';
+import { ProductType } from './types';
 
 export const ProductDetail = ({ product }) => (
     <div className="product">
@@ -34,4 +35,8 @@ export const ProductDetail = ({ product }) => (
             </div>
         </div>
     </div>
-); 
+);
+
+ProductDetail.propTypes = {
+    product: ProductType
+}

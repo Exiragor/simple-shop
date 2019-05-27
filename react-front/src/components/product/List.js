@@ -1,6 +1,6 @@
 import React from 'react';
 import { ProductCard } from './Card';
-import { ProductTypes } from './types';
+import { ProductsType } from './types';
 
 export const ProductsList = ({ products }) => (
     <div className="products-list row">
@@ -9,5 +9,5 @@ export const ProductsList = ({ products }) => (
 );
 
 ProductsList.propTypes = {
-    products: ProductTypes
+    products: ProductsType
 }
