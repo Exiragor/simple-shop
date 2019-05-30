@@ -12,7 +12,8 @@ const generatePages = (currentPage, lastPage) => {
     for (let i = page - 1 || 1; i <= page + 1; i++) {
         if (i > lastPage)
             break;
-        pages.push(i);
+        if (i !== 1 && i !== lastPage) 
+            pages.push(i);
     }
 
     return pages;
@@ -29,8 +30,8 @@ export const Pagination = ({ currentPage, lastPage, changePage }) => {
                 <li className={previousPage}>
                     <button className="page-link" onClick={() => changePage(currentPage - 1)}>Previous</button>
                 </li>
-                { currentPage - 1 > 1 &&
-                    <li className="page-item">
+                { lastPage >= 1 &&
+                    <li className={commonPage(1)}>
                         <button className="page-link" onClick={() => changePage(1)}>1</button>
                     </li>
                 }
@@ -49,8 +50,8 @@ export const Pagination = ({ currentPage, lastPage, changePage }) => {
                         <button className="page-link">...</button>
                     </li>
                 }
-                { currentPage + 1 < lastPage &&
-                    <li className="page-item">
+                { lastPage > 1 &&
+                    <li className={commonPage(lastPage)}>
                         <button className="page-link" onClick={() => changePage(lastPage)}>{ lastPage }</button>
                     </li>
                 }
