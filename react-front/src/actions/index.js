@@ -1,7 +1,6 @@
 import { loadProductsApi, loadProductApi } from '../api/products'
 
-export const loadProducts = (page, count) => async (dispatch, getState) => {
-    let { products: { query }} = getState();
+export const loadProducts = (page, count, query) => async dispatch => {
     let { data } = await loadProductsApi(count, page, query || {});
 
     dispatch({
@@ -25,14 +24,6 @@ export const loadProduct = id => async dispatch => {
 
     return data;
 }
-
-// example: query = { name: '' }
-export const changeProductQuery = query => dispatch => {
-    dispatch({
-        type: 'SET_QUERY_FIELDS',
-        query
-    });
-} 
 
 export const addProductToCart = product => dispatch => {
     dispatch({

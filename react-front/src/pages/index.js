@@ -18,24 +18,26 @@ const mapStateToPaginationProps = state => ({
 
 const PaginationComponent = connect(mapStateToPaginationProps)(Pagination);
 
+let searchQuery = { name: '' }; // store a searchValue for this component
+
 export const HomePage = ({ match, history }) => {
     const changePageHandler = (page) => history.push(`/page/${page}`);
 
     const searchChangeHandler = ({ target: { value } }) => {
-        store.dispatch(changeProductQuery({ name: value }));
+        searchQuery.name = value;
         history.push('/page/1');
     };
 
     const currentPage = +match.params.page || 1;
 
     useEffect(() => {
-        store.dispatch(loadProducts(currentPage, 20));
+        store.dispatch(loadProducts(currentPage, 20, searchQuery));
     });
     
     return (
         <div className="container mt-5">
             <PaginationComponent currentPage={ currentPage } changePage={changePageHandler} />
-            <Search changeHandler={searchChangeHandler} />
+            <Search changeHandler={searchChangeHandler} value={searchQuery.name} />
             <ProductListComponent />
         </div>
     );

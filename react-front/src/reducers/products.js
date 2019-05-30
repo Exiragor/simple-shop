@@ -1,10 +1,7 @@
 const initialState = {
     list: [],
     current: {},
-    lastPage: 0,
-    query: {
-        name: '',
-    }
+    lastPage: 0
 };
 
 const products = (state = initialState, action) => {
