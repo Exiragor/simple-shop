@@ -45,3 +45,10 @@ export const cartDeleteProduct = id => dispatch => {
         id
     });
 }
+
+export const cartSetProducts = products => dispatch => {
+    dispatch({
+        type: 'CART_SET_PRODUCTS',
+        products
+    })
+}

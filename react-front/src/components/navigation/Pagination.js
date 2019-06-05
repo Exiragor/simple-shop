@@ -10,6 +10,7 @@ const generatePages = (currentPage, lastPage) => {
     let pages = [];
 
     for (let i = page - 1 || 1; i <= page + 1; i++) {
+        if (i > lastPage) break;
         if (i !== 1 && i !== lastPage) 
             pages.push(i);
     }

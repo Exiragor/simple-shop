@@ -17,6 +17,11 @@ const cart = (state = initialState, action) => {
                     }
                 ]
             }
+        case 'CART_SET_PRODUCTS':
+            return {
+                ...state,
+                products: action.products
+            }
         case 'CART_PRODUCT_CHANGE_COUNT':
             return {
                 ...state,

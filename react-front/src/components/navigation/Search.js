@@ -10,7 +10,7 @@ export const Search = ({ changeHandler, placeholder, value }) => (
                 placeholder={placeholder || 'Search'}
                 aria-label="Search"
                 onChange={changeHandler}
-                value={value || null}
+                value={value || ''}
             />
         </div>
     </nav>

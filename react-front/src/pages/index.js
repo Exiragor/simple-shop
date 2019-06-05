@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { ProductsList } from '../components/product/List';
 import { Pagination } from '../components/navigation/Pagination';
 import { Search } from '../components/navigation/Search';
-import { loadProducts, changeProductQuery } from '../actions';
+import { loadProducts } from '../actions';
 
 const mapStateToProductProps = state => ({
     products: state.products.list
@@ -36,7 +36,7 @@ export const HomePage = ({ match, history }) => {
     
     return (
         <div className="container mt-5">
-            <PaginationComponent currentPage={ currentPage } changePage={changePageHandler} />
+            <PaginationComponent currentPage={currentPage} changePage={changePageHandler} />
             <Search changeHandler={searchChangeHandler} value={searchQuery.name} />
             <ProductListComponent />
         </div>
